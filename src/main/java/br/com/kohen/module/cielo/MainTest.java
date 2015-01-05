@@ -1,5 +1,6 @@
 package br.com.kohen.module.cielo;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 
@@ -25,7 +26,7 @@ public class MainTest {
 	 * @param args
 	 * @throws ParseException 
 	 */
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, IOException {
 		CieloWebServiceImpl service = new CieloWebServiceImpl();
 		BusinessEstablishment stablishment = BusinessEstablishment.build()
 				.withKey("06643f09df08665f776cdd3dba93eb5252e555e7461090e9ec4049e1172f3883")

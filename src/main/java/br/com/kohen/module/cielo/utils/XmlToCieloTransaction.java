@@ -54,6 +54,7 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloOrder.class, "amount", "valor");
 		xStream.aliasAttribute(CieloOrder.class, "currency", "moeda");
 		xStream.aliasAttribute(CieloOrder.class, "lang", "idioma");
+		xStream.aliasAttribute(CieloOrder.class, "taxaEmbarque", "taxa-embarque");
 		xStream.aliasAttribute(CieloOrder.class, "description", "descricao");
 		
 		xStream.aliasAttribute(CieloPayment.class, "creditCardType", "bandeira");

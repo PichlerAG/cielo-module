@@ -25,12 +25,12 @@ public class CieloWebServiceImpl implements CieloWebService {
 
 	private static final String URL_WS = PropertiesAcessor.load().getProperty("cielo.url.webservice");
 	
-	public CieloResponse newTransaction(CieloTransaction transaction) {
+	public CieloResponse newTransaction(CieloTransaction transaction) throws IOException {
 		
 		return callWS(transaction, NEW);
 	}
 
-	public CieloResponse findTransaction(String tid, BusinessEstablishment bEstablishment) {
+	public CieloResponse findTransaction(String tid, BusinessEstablishment bEstablishment) throws IOException {
 		
 		CieloTransaction transaction = CieloTransaction.build()
 			.withBusinessEstablishment(bEstablishment)
@@ -39,21 +39,15 @@ public class CieloWebServiceImpl implements CieloWebService {
 		return callWS(transaction, CHECK);
 	}
 	
-	private CieloResponse callWS(CieloTransaction transaction, TemplateTransaction template) {
+	private CieloResponse callWS(CieloTransaction transaction, TemplateTransaction template)
+			throws IOException {
 		
 		String content = "";
-		try {
 			
 			content = Request.Post(URL_WS)
 					.connectTimeout(_CONNECTION_TIMEOUT)
 					.bodyForm(Form.form().add("mensagem", transaction.toXml(template)).build())
 					.execute().returnContent().asString();
-			
-		} catch (ClientProtocolException e) {
-			throw new ConnectionFailedException(e);
-		} catch (IOException e) {
-			throw new ConnectionFailedException(e);
-		}
 		
 		return CieloResponse.build(content);
 	}

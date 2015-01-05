@@ -9,6 +9,16 @@ public class CieloOrder {
 
 	private String number;
 	private long amount;
+
+	public long getTaxaEmbarque() {
+		return taxaEmbarque;
+	}
+
+	public void setTaxaEmbarque(long taxaEmbarque) {
+		this.taxaEmbarque = taxaEmbarque;
+	}
+
+	private long taxaEmbarque;
 	private Date date;
 	private CieloLanguage lang;
 	private CieloCurrency currency;

@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.exception;
 
-public class ConnectionFailedException extends RuntimeException {
+public class ConnectionFailedException extends Exception {
 
 	/**
 	 * 
