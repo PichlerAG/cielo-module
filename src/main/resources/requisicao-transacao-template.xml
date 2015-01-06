@@ -20,10 +20,8 @@
 
         <descricao>Welcome Surf Trips</descricao>
         <idioma>$transaction.order.lang.getName()</idioma>
-
         <taxa-embarque>0</taxa-embarque>
         <soft-descriptor>Welcome Trips</soft-descriptor>
-
 
     </dados-pedido>
     <forma-pagamento>
